@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Solver</title>
+</head>
+
+<body>
+
+    <!--<script type="module" src="./build/main.js"></script>-->
+
+    <div id="sidebar">
+        <h1>Maze Solver</h1>
+
+        <div class="control-group">
+            <div class="slider-container">
+                <label>Rows</label>
+                <div class="slider-info">
+                    <input type="range" id="rowSlider" min="10" max="200" value="20">
+                    <span id="rowValue">20</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="slider-container">
+                <label>Columns</label>
+                <div class="slider-info">
+                    <input type="range" id="colSlider" min="10" max="200" value="20">
+                    <span id="colValue">20</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Algorithm</label>
+            <select id="algorithmSelect">
+                <option value="bfs">Breadth-First Search</option>
+                <option value="dfs">Depth-First Search</option>
+                <option value="astar">A* Search</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <div class="slider-container">
+                <label>Solving Speed</label>
+                <div class="slider-info">
+                    <input type="range" id="speedSlider" min="1" max="100" value="1">
+                    <span id="speedValue">1ms</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <button id="regenerateButton">Regenerate Maze</button>
+            <button id="solveButton">Solve Maze</button>
+        </div>
+
+        <div class="stats">
+            <p>Grid Size: <span id="gridSizeInfo">20 x 20</span></p>
+            <p>Cell Size: <span id="cellSizeInfo">20px</span></p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <canvas id="mazeCanvas"></canvas>
+    </div>
+
+
+
+</body>
+
+</html>
