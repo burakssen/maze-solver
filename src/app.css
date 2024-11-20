@@ -23,10 +23,16 @@ body {
     min-height: 100vh;
     background-color: var(--background);
     color: var(--foreground);
+    flex-direction: row;
+    /* Default flex-direction for larger screens */
+    flex-wrap: wrap;
+    /* Allow for wrapping */
 }
 
 #sidebar {
     width: 300px;
+    max-width: 100%;
+    /* Ensure sidebar can shrink on smaller screens */
     padding: 1.5rem;
     background-color: var(--background);
     border-right: 1px solid var(--border);
@@ -136,8 +142,86 @@ button:disabled {
     align-items: center;
     justify-content: center;
     background-color: var(--background);
+    max-width: 100%;
+    /* Prevent content from being too wide */
 }
 
 canvas {
     background-color: var(--muted);
+}
+
+/* Mobile-first responsiveness */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        /* Stack the sidebar and main content vertically */
+    }
+
+    #sidebar {
+        width: 100%;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    #main-content {
+        padding: 1rem;
+    }
+
+    .slider-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button,
+    select,
+    input[type="range"] {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        padding: 0.5rem;
+    }
+
+    .control-group {
+        gap: 0.5rem;
+    }
+
+    label {
+        font-size: 0.75rem;
+    }
+
+    .slider-info span {
+        font-size: 0.75rem;
+    }
+
+    button {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .stats {
+        font-size: 0.75rem;
+    }
+}
+
+/* Ensure flexibility on larger screens */
+@media (min-width: 1200px) {
+    body {
+        flex-direction: row;
+        /* Ensure sidebar and content are side by side */
+    }
+
+    #sidebar {
+        width: 300px;
+        /* Fixed width for sidebar on larger screens */
+        padding: 1.5rem;
+    }
+
+    #main-content {
+        flex: 1;
+        /* Main content takes up remaining space */
+    }
 }
